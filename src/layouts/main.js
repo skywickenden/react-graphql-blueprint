@@ -4,7 +4,8 @@ import { css } from "linaria";
 
 const styles = {
   title: css`
-    color: #872259;
+    color: #872258;
+    font-size: 30px;
   `
 }
 
