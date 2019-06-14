@@ -12,7 +12,7 @@ const styles = {
 const MainLayout = props => (
   <div>
     <header>
-      <h1 className={styles.title}>React Client Blueprint</h1>
+      <h1 className={styles.title}>React GraphQL Blueprint</h1>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/foo">Foo</Link>

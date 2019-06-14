@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   client:
-    container_name: client_blueprint
+    container_name: react-graphql-blueprint
     build: './client'
     command: npm run start
     environment:

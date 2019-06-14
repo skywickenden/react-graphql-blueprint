@@ -12,7 +12,7 @@ it("Renders and has text content", () => {
 
   // Only need to test elements with styles attached
   // All HTML is tested by the snapshot
-  const titleContent = getByText("React Client Blueprint");
+  const titleContent = getByText("React GraphQL Blueprint");
 
   const { critical, other } = collect(titleContent, css);
   expect(critical).toEqual(expect.stringContaining("color:#872258;"));

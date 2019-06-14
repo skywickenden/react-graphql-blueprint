@@ -7,7 +7,7 @@ exports[`Renders and has text content 1`] = `
       <h1
         class="t1gffk2o"
       >
-        React Client Blueprint
+        React GraphQL Blueprint
       </h1>
       <nav>
         <a
