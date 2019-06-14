@@ -10,6 +10,8 @@ Create a new repository from this template on the Github website by clicking on 
 
 Create a local folder for docker-compose files. `cd` into it and the clone your new repository. After cloning, rename the clone folder as `api`. Copy the contents of `example.env` and `example.docker-compose.yml` into the parent folder - into files without the `example.` prefix. If you are combining this with other templates then you will need to merge the contents rather than create new files. Open `.env` and ensure that CLIENT_HOST_PORT is available localy. If not then edit it appropriatly.
 
+This blueprint requires a qraphql server running in the same docker so that it can regenerate the client graphql schema from the servers schema. This assumes that [graphql-node-blueprint](https://github.com/skywickenden/graphql-node-api) is running in a service called `api`. To use a different server: install into the docker-compose parent folder using a folder and service name of api. Then edit `./.graphqlconfig` so that `http://graphql-node-blueprint-api:3000/graphql"` points towards container name and port for the server service.
+ 
 ### Run
 
 From the command line in the folder containing `docker-compose.yml` :
@@ -17,9 +19,16 @@ From the command line in the folder containing `docker-compose.yml` :
   * Build with `docker-compose build`
   * Run with `docker-compose up`
 
-To install new packages: Run the api docker with `docker-compose run api sh` and then use `npm install <package_name>`. Type `exit` to return to your command line and then rebuild and rerun - only this time add a -V switch... `docker-compose up -V`. This will force the deletion of the anonymous node_package volume and prevent a [docker race condition issue.](https://github.com/docker/compose/issues/4337)
+To install new packages: Run the api docker with `docker-compose run client sh` and then use `npm install <package_name>`. Type `exit` to return to your command line and then rebuild and rerun - only this time add a -V switch... `docker-compose up -V`. This will force the deletion of the anonymous node_package volume and prevent a [docker race condition issue.](https://github.com/docker/compose/issues/4337)
 
 The main entry file is ./src/index.js
+
+This blueprint requires four command lines to be running whilst developing. They should be started in this order:
+
+  * The main one containing all the docker services `docker-compose up`
+  * A service that watches for graphql schema changes on the server and copies them to the local schema `docker-compose run client npm run getschema`
+  * A service that compiles react-graphql schema code into graphql for hot reloading. `docker-compose run client npm run relay`
+  * The test runner. `docker-compose run client npm run test`
 
 ### Routing
 
@@ -28,6 +37,12 @@ Routing is performed with react-router-dom. Main route file is in `/src/routes.j
 ### CSS
 
 CSS is implemented via linaria. See `./src/layouts/main.js` for an example.
+
+### Graphql
+
+The server is watched for changes in the schema on the server and copies them localy. graphql-cli is installed in the Dockerfile for this purpose and `./.graphqlconfig` defines the server location in the docker. A script is defined in package.json to set the service running (see the Run section for details).
+
+react-relay is used to generate server requests. This requires a service that compiles the react graphql code into schema requests. (See the run section for details on running the service). `./relay-environment.js` defines the process for sending queries to the server. 
 
 ### Test
 
