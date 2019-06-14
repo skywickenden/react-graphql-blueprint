@@ -1,0 +1,20 @@
+# source: http://graphql-node-blueprint-api:3000/graphql
+# timestamp: Fri Jun 14 2019 07:04:02 GMT+0000 (Coordinated Universal Time)
+
+schema {
+  query: RootQueryType
+  mutation: RootMutationType
+}
+
+type Foo {
+  id: ID
+  foobar: String
+}
+
+type RootMutationType {
+  addFoo(foobar: String!): Foo
+}
+
+type RootQueryType {
+  foo(id: ID!): Foo
+}
