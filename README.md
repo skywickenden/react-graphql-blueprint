@@ -44,6 +44,11 @@ The server is watched for changes in the schema on the server and copies them lo
 
 react-relay is used to generate server requests. This requires a service that compiles the react graphql code into schema requests. (See the run section for details on running the service). `./relay-environment.js` defines the process for sending queries to the server. 
 
+Notes:
+
+  * At present the relay process needs to be run manaully whenever a change is made.
+  * The schema will constantly be regenerated with a new timestamp. This can be annoying for commits. Waiting on https://github.com/graphql-cli/graphql-cli/issues/458 to improve this.
+
 ### Test
 
 Testing is performed using Jest and SuperTest. See an example in `./foo.test.js`. Run tests from the parent folder with `docker-compose run api npm run test`.  For an example of how to test css see `./src/layouts/main.js`.
