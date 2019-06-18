@@ -9,13 +9,17 @@ exports[`Renders and has text content 1`] = `
       >
         React GraphQL Blueprint
       </h1>
-      <nav>
+      <nav
+        class="nkso86p"
+      >
         <a
+          class="nn3ty9u"
           href="/"
         >
           Home
         </a>
         <a
+          class="nn3ty9u"
           href="/foo"
         >
           Foo
