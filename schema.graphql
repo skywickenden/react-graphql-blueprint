@@ -1,5 +1,5 @@
 # source: http://graphql-node-blueprint-api:3000/graphql
-# timestamp: Tue Jun 18 2019 08:18:25 GMT+0000 (Coordinated Universal Time)
+# timestamp: Tue Jun 18 2019 13:46:08 GMT+0000 (Coordinated Universal Time)
 
 schema {
   query: RootQueryType
@@ -20,5 +20,9 @@ type RootMutationType {
 }
 
 type RootQueryType {
+  """An item of Foo"""
+  Foo(id: ID!): Foo
+
+  """A collection of Foo"""
   Foos: [Foo]
 }
