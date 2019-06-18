@@ -8,6 +8,7 @@ services:
     environment:
       - PORT=8080
       - NODE_ENV=development
+      - API_PORT=3000
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules

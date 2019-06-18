@@ -11,7 +11,7 @@ global.fetch = require("node-fetch");
 
 const queryMock = new QueryMock();
 beforeEach(() => {
-  queryMock.setup("http://localhost:3000/graphql"); // Variable containing the URL for your GraphQL API. This must match what you"re making requests to in your client code.
+  queryMock.setup(`http://localhost:${process.env.API_PORT}/graphql`); // Variable containing the URL for your GraphQL API. This must match what you"re making requests to in your client code.
 });
 
 const wrapper = ({children}) => (
