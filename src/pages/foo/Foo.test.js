@@ -6,9 +6,9 @@ import Foo from "./Foo";
 import { collect } from "linaria/server";
 import fs from "fs";
 import path from "path";
-const addFooCss = fs.readFileSync(path.resolve("./.linaria-cache/src/pages/foo/AddFoo.linaria.css"), "utf8");
-const listFooCss = fs.readFileSync(path.resolve("./.linaria-cache/src/pages/foo/ListFoo.linaria.css"), "utf8");
-const deleteFooCss = fs.readFileSync(path.resolve("./.linaria-cache/src/pages/foo/DeleteFoo.linaria.css"), "utf8");
+const addFooCSS = fs.readFileSync(path.resolve("./.linaria-cache/src/pages/foo/AddFoo.linaria.css"), "utf8");
+const listFooCSS = fs.readFileSync(path.resolve("./.linaria-cache/src/pages/foo/ListFoo.linaria.css"), "utf8");
+const deleteFooCSS = fs.readFileSync(path.resolve("./.linaria-cache/src/pages/foo/DeleteFoo.linaria.css"), "utf8");
 
 describe("Foo Integration", () => {
   it("Lists Foo, Adds Foo and Deletes Foo", async () => {
@@ -57,7 +57,7 @@ describe("Foo Integration", () => {
       expect(listItem2.nodeName).toEqual("LI");
       const deleteButtons = getAllByText("Delete");
       expect(deleteButtons.length).toEqual(2);
-      const { critical: listItemCSS } = collect(listItem1, listFooCss);
+      const { critical: listItemCSS } = collect(listItem1, listFooCSS);
       expect(listItemCSS).toEqual(expect.stringContaining("height:25px;"));
       expect(listItemCSS).toEqual(expect.stringContaining("padding:5px;"));
       expect(listItemCSS).toEqual(expect.stringContaining("line-height:25px;"));
@@ -65,14 +65,14 @@ describe("Foo Integration", () => {
       expect(listItemCSS).toEqual(expect.stringContaining(":nth-child(even){background-color:#d5e5ff;}"));
      
       const list = listItem1.parent;
-      const { critical: listCSS } = collect(list, listFooCss);
+      const { critical: listCSS } = collect(list, listFooCSS);
       expect(listCSS).toEqual(expect.stringContaining("width:400px"));
       expect(listCSS).toEqual(expect.stringContaining("list-style-type:none;"));
       expect(listCSS).toEqual(expect.stringContaining("padding:0;"));
 
       expect(listItem1).toContainElement(deleteButtons[0]);  
       expect(listItem2).toContainElement(deleteButtons[1]);
-      const { critical: deleteCSS } = collect(deleteButtons[0], deleteFooCss);
+      const { critical: deleteCSS } = collect(deleteButtons[0], deleteFooCSS);
       expect(deleteCSS).toEqual(expect.stringContaining("outline-style:none;"));
       expect(deleteCSS).toEqual(expect.stringContaining("display:inline-block;"));
       expect(deleteCSS).toEqual(expect.stringContaining("margin-bottom:0;"));
@@ -99,10 +99,10 @@ describe("Foo Integration", () => {
     const input = getByLabelText("Enter some foo:");
     const addButton = getByText("Add")
 
-    const { critical: inputCSS } = collect(input, addFooCss);
+    const { critical: inputCSS } = collect(input, addFooCSS);
     expect(inputCSS).toEqual(expect.stringContaining("margin:0 10px;"));
 
-    const { critical: addCSS } = collect(addButton, addFooCss);
+    const { critical: addCSS } = collect(addButton, addFooCSS);
     expect(addCSS).toEqual(expect.stringContaining("outline-style:none;"));
     expect(addCSS).toEqual(expect.stringContaining("display:inline-block;"));
     expect(addCSS).toEqual(expect.stringContaining("margin-bottom:0;"));
