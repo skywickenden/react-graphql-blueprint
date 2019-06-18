@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Foo from './pages/foo';
-import Home from './pages/Home';
+import Foo from "./pages/foo/Foo";
+import Home from "./pages/Home";
 
 const Routes = () => (
   <Router>

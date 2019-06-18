@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Layout from '../layouts/main';
+import Layout from "../layouts/main";
 
 const Home = () => (
   <Layout>
