@@ -36,7 +36,7 @@ Routing is performed with react-router-dom. Main route file is in `/src/routes.j
 
 ### CSS
 
-CSS is implemented via linaria. See `./src/layouts/main.js` for an example.
+CSS is implemented via linaria. See `./src/layouts/main.js` for an example. Base template styles are in `./src/base-styles.js` - see `./src/pages/foo/AddFoo.js` for an example.
 
 ### Graphql
 
