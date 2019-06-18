@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import { render } from "@testing-library/react";
-import { BrowserRouter as Router } from 'react-router-dom';
-import { QueryMock } from 'graphql-query-test-mock';
+import { BrowserRouter as Router } from "react-router-dom";
+import { QueryMock } from "graphql-query-test-mock";
 
 // Required when mocking due to babel
 import regeneratorRuntime from "regenerator-runtime";
 
 // Required by nock for mocking graphql requests.
-global.fetch = require('node-fetch');
+global.fetch = require("node-fetch");
 
 const queryMock = new QueryMock();
 beforeEach(() => {
@@ -21,6 +21,6 @@ const wrapper = ({children}) => (
 const customRender = (ui, options) =>
   render(ui, { wrapper, ...options });
   
-export * from '@testing-library/react';
+export * from "@testing-library/react";
 
 export { customRender as render, queryMock };
