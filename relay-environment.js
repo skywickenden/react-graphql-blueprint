@@ -12,11 +12,13 @@ function fetchQuery(operation, variables) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      query: operation.test,
+      query: operation.text,
       variables
     })
   }).then(response => {
     return response.json();
+  }).catch(err => {
+    console.error("fetch error", err);
   });
 }
 
