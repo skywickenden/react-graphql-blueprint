@@ -51,4 +51,4 @@ Notes:
 
 ### Test
 
-Testing is performed using Jest and SuperTest. See an example in `./foo.test.js`. Run tests from the parent folder with `docker-compose run api npm run test`.  For an example of how to test css see `./src/layouts/main.js`.
+Testing is performed using Jest and SuperTest. See an example in `./foo.test.js`. Run tests from the parent folder with `docker-compose run api npm run test`.  For an example of how to test css see `./src/layouts/main.js`. `./test-utils.js` is used to setup both the test router wrapper and also `graphql-query-test-mock` to mock graphql queries.
