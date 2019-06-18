@@ -1,6 +1,6 @@
 # react-client-blueprint
 
-A React client based on [react-client-blueprint](https://github.com/skywickenden/api-blueprint) and designed to work with [graphql-node-blueprint](https://github.com/skywickenden/graphql-node-api) backend
+A React client based on [react-client-blueprint](https://github.com/skywickenden/api-blueprint) and designed to work with [graphql-node-blueprint](https://github.com/skywickenden/graphql-node-blueprint) backend
 
 USes Webpack and Babel, React router, Linaria for CSS and Jest with React Testing Library for tests.
 
