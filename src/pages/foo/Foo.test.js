@@ -1,5 +1,5 @@
 import React from "react";
-import { render, wait, queryMock, fireEvent, waitForElement } from "../../../test-utils";
+import { render, wait, queryMock, fireEvent } from "../../../test-utils";
 import { toContainElement } from "jest-dom/extend-expect";
 import Foo from "./Foo";
 
