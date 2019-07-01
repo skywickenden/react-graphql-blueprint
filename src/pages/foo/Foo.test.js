@@ -1,5 +1,6 @@
 import React from "react";
 import { render, wait, queryMock, fireEvent } from "../../../test-utils";
+import { toContainElement } from "jest-dom/extend-expect"; // eslint-disable-line no-unused-vars
 import Foo from "./Foo";
 
 import { collect } from "linaria/server";
